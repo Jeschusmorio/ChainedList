@@ -1,17 +1,17 @@
 
 public class List {
-	Elem latestElem;
-	Elem head;
+	//public Elem latestElem;
+	public Elem head;
 	
 	//Constructor creates a head element with the value of the head element
 	public List(int valOfHead) {
 		this.head = new Elem(valOfHead);
-		latestElem = head;
+		//latestElem = head;
 	}
 	public void addElem(int val) {
 		Elem nextElem = new Elem(val);
+		Elem latestElem = latestElem();
 		latestElem.address = nextElem;
-		latestElem = nextElem;
 	}
 	public void deleteElem(int index) {
 		if (index < 0) {
@@ -45,6 +45,16 @@ public class List {
 			nextElem = nextElem.address;
 		}
 		return length;
+	}
+	//returns the last Element of the list
+	private Elem latestElem() {
+		int numElem = length() - 1;
+		Elem latestElem = head;
+		while (numElem > 0) {
+			latestElem = latestElem.address;
+			numElem--;
+		}
+		return latestElem;
 	}
 	public void printList() {
 		Elem currentElem = head;

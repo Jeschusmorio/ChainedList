@@ -1,7 +1,7 @@
 
 public class Elem {
-	int val;
-	Elem address;
+	public int val;
+	public Elem address;
 	
 	public Elem(int val) {
 		this.val = val;
